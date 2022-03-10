@@ -2,3 +2,12 @@
   font-family: "PacFont";
   src: url("../font/pac-font.ttf") format("truetype");
 }
+
+:root {
+  --color-primary: #ffdf00;
+  --color-secondary: #000;
+  --color-accent: yellow;
+  --color-headings: #1b0760;
+  --color-border: rgb(170, 36, 36);
+  --border-radius: 36px;
+}
