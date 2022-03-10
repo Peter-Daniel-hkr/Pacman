@@ -2,3 +2,192 @@
   font-family: "PacFont";
   src: url("../font/pac-font.ttf") format("truetype");
 }
+
+html {
+  /* 62.5% of 16px = 10px */
+  font-size: 62.5%;
+}
+
+#game-canvas {
+  box-shadow: 1.5rem 1.5rem 2rem #832020;
+  width: 80vmin;
+  height: 80vmin;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #000;
+  overflow: hidden;
+}
+
+#sound {
+  width: 3rem;
+  height: 2.9rem;
+  cursor: pointer;
+  position: absolute;
+  top: 38rem;
+  left: 39rem;
+}
+
+#game-over {
+  position: absolute;
+  width: 80vmin;
+  height: 80vmin;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+#you-won {
+  position: absolute;
+  top: 17vmin;
+  left: 20vmin;
+  width: 40vmin;
+  display: none;
+}
+#you-lose {
+  position: absolute;
+  top: 16vmin;
+  left: 5vmin;
+  width: 70vmin;
+  display: none;
+}
+#restart {
+  position: absolute;
+  top: 61vmin;
+  left: 22vmin;
+  cursor: pointer;
+  font-family: PacFont, comic sans MS, sans-serif;
+  font-size: 4.25rem;
+  color: goldenrod;
+}
+
+@media screen and (max-width: 76.8rem) {
+  #game-canvas {
+    box-shadow: 1rem 1rem 2rem #832020;
+    width: 80vmin;
+    height: 80vmin;
+  }
+}
+
+#ui {
+  display: flex;
+  align-items: center;
+
+  font-size: 1rem;
+  /* flex-flow: column; */
+  margin-left: 19rem;
+}
+h2 {
+  font-weight: 200;
+  transform: rotate(0deg);
+  text-align: center;
+  font-family: PacFont, comic sans MS, sans-serif;
+  color: #fff;
+  font-size: 2.5rem;
+  margin-right: 1rem;
+  /* margin-bottom: 2rem; */
+}
+#score {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffdf00;
+}
+
+@media (max-width: 76.8rem) {
+  h2 {
+    transform: rotate(0deg);
+  }
+  #ui {
+    flex-flow: row wrap;
+    margin-bottom: 2rem;
+  }
+  #score {
+    margin-top: 0;
+    margin-left: 2rem;
+  }
+}
+
+.rules-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  width: 36rem;
+  height: 31.8rem;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+h1 {
+  position: absolute;
+  top: 32rem;
+  left: 8rem;
+  text-align: center;
+  font-family: PacFont, comic sans MS, sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 5rem;
+}
+
+p {
+  position: absolute;
+  top: 36rem;
+  left: 3rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  padding: 1rem 2rem;
+  background: rgb(71, 68, 68);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  margin-left: 2rem;
+}
+
+#close-btn {
+  position: absolute;
+  top: 58rem;
+  left: 13.5rem;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:hover {
+  background: #222;
+}
+
+.rules-btn {
+  position: fixed;
+  top: 37rem;
+  right: 33rem;
+  transform: rotate(90deg);
+}
+
+.rules {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  color: #fff;
+  min-height: 100vh;
+  width: 33rem;
+  padding: 2rem;
+  line-height: 1.5;
+  transform: translateX(-38rem);
+  transition: transform 1s ease-in-out;
+}
+
+.rules.show {
+  transform: translateX(0);
+}
