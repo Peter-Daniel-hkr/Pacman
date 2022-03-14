@@ -170,4 +170,29 @@ export default class TileMap {
     }
     return false;
   }
+
+  eatDot(x, y) {
+    const row = y / this.tileSize;
+    const column = x / this.tileSize;
+    if (Number.isInteger(row) && Number.isInteger(column)) {
+      if (this.gameMap[row][column] === 0) {
+        this.gameMap[row][column] = 2;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  eatPowerDot(x, y) {
+    const row = y / this.tileSize;
+    const column = x / this.tileSize;
+    if (Number.isInteger(row) && Number.isInteger(column)) {
+      const tile = this.gameMap[row][column];
+      if (tile === 5) {
+        this.gameMap[row][column] = 2;
+        return true;
+      }
+    }
+    return false;
+  }
 }

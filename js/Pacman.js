@@ -8,8 +8,21 @@ export default class Pacman {
     this.speed = speed;
     this.tileMap = tileMap;
 
+    this.currentMovingDirection = null;
+    this.requestedMovingDirection = null;
+
     this.pacmanAnimationTimerDefault = 10;
     this.pacmanAnimationTimer = null;
+
+    this.pacmanRotation = this.Rotation.right;
+    this.eatDotSound = new Audio();
+    this.eatDotSound.src = "sounds/eat_dot.wav";
+
+    this.powerDotSound = new Audio();
+    this.powerDotSound.src = "sounds/power_dot.wav";
+    this.powerDotActive = false;
+    this.powerDotAboutToExpire = false;
+    this.timers = [];
     // keyboard input
     document.addEventListener("keydown", this.#keydown);
 
@@ -19,6 +32,8 @@ export default class Pacman {
   draw(ctx) {
     this.#move();
     this.#animate();
+    this.#eatDot();
+    this.#eatPowerDot();
     const size = this.tileSize / 2;
 
     ctx.save();
@@ -122,6 +137,42 @@ export default class Pacman {
       this.pacmanImageIndex++;
       if (this.pacmanImageIndex == this.pacmanImages.length)
         this.pacmanImageIndex = 0;
+    }
+  }
+
+  #eatDot() {
+    if (this.tileMap.eatDot(this.x, this.y) && this.madeFirstMove) {
+      this.score += 1;
+      // this.setHighScore();
+      // console.log(this.score);
+      this.dom_score.innerHTML = `${this.score}`;
+      this.eatDotSound.play();
+      // this.soundManager();
+    }
+  }
+
+  #eatPowerDot() {
+    if (this.tileMap.eatPowerDot(this.x, this.y)) {
+      this.score += 10;
+      this.dom_score.innerHTML = `${this.score}`;
+      this.powerDotSound.play();
+      this.powerDotActive = true;
+      this.powerDotAboutToExpire = false;
+      this.timers.forEach((timer) => clearTimeout(timer));
+      this.timers = [];
+
+      let powerDotTimer = setTimeout(() => {
+        this.powerDotActive = false;
+        this.powerDotAboutToExpire = false;
+      }, 1000 * 6);
+
+      this.timers.push(powerDotTimer);
+
+      let powerDotAboutToExpireTimer = setTimeout(() => {
+        this.powerDotAboutToExpire = true;
+      }, 1000 * 3);
+
+      this.timers.push(powerDotAboutToExpireTimer);
     }
   }
 }
