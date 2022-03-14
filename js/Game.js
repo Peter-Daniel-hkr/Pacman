@@ -5,11 +5,13 @@ const canvas = document.getElementById("game-canvas"),
   tileSize = 32,
   speed = 2,
   tileMap = new TileMap(tileSize),
-  pacman = tileMap.getPacman(speed);
+  pacman = tileMap.getPacman(speed),
+  ghosts = tileMap.getGhosts(speed);
 
 function gameLoop() {
   tileMap.draw(ctx);
   pacman.draw(ctx);
+  ghosts.forEach((ghost) => ghost.draw(ctx, pause(), pacman));
 }
 
 tileMap.setCanvasSize(canvas);

@@ -120,6 +120,29 @@ export default class TileMap {
     }
   }
 
+  getGhosts(speed) {
+    const ghosts = [];
+
+    for (let row = 0; row < this.gameMap.length; row++) {
+      for (let column = 0; column < this.gameMap[row].length; column++) {
+        const tile = this.gameMap[row][column];
+        if (tile == 3) {
+          this.gameMap[row][column] = 0;
+          ghosts.push(
+            new Ghost(
+              column * this.tileSize,
+              row * this.tileSize,
+              this.tileSize,
+              speed,
+              this
+            )
+          );
+        }
+      }
+    }
+    return ghosts;
+  }
+
   setCanvasSize(canvas) {
     canvas.width = this.gameMap[0].length * this.tileSize;
     canvas.height = this.gameMap.length * this.tileSize;
