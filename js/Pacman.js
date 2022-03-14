@@ -7,6 +7,9 @@ export default class Pacman {
     this.tileSize = tileSize;
     this.speed = speed;
     this.tileMap = tileMap;
+
+    this.pacmanAnimationTimerDefault = 10;
+    this.pacmanAnimationTimer = null;
     // keyboard input
     document.addEventListener("keydown", this.#keydown);
 
@@ -15,6 +18,13 @@ export default class Pacman {
 
   draw(ctx) {
     this.#move();
+    this.#animate();
+    const size = this.tileSize / 2;
+
+    ctx.save();
+    ctx.translate(this.x + size, this.y + size);
+    ctx.rotate((this.pacmanRotation * 90 * Math.PI) / 180);
+
     ctx.drawImage(
       this.pacmanImages[this.pacmanImageIndex],
       -size,
@@ -22,6 +32,7 @@ export default class Pacman {
       this.tileSize,
       this.tileSize
     );
+    ctx.restore();
   }
 
   #loadPacmanImages() {
@@ -98,6 +109,19 @@ export default class Pacman {
       case MovingDirection.right:
         this.x += this.speed;
         break;
+    }
+  }
+
+  #animate() {
+    if (this.pacmanAnimationTimer == null) {
+      return;
+    }
+    this.pacmanAnimationTimer--;
+    if (this.pacmanAnimationTimer == 0) {
+      this.pacmanAnimationTimer = this.pacmanAnimationTimerDefault;
+      this.pacmanImageIndex++;
+      if (this.pacmanImageIndex == this.pacmanImages.length)
+        this.pacmanImageIndex = 0;
     }
   }
 }
