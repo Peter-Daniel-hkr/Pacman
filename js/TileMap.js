@@ -1,3 +1,5 @@
+import Pacman from "./Pacman.js";
+
 export default class TileMap {
   constructor(tileSize) {
     this.tileSize = tileSize;
@@ -43,6 +45,7 @@ export default class TileMap {
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   ];
 
+  // Legend:>> 0 - dots; 1 - wall; 2 - empty space; 3 - ghost; 4 - pacman; 5 - power pellet
   draw(ctx) {
     for (let row = 0; row < this.gameMap.length; row++) {
       for (let column = 0; column < this.gameMap[row].length; column++) {
@@ -96,5 +99,24 @@ export default class TileMap {
   #drawBlank(ctx, column, row, size) {
     ctx.fillStyle = "black";
     ctx.fillRect(column * this.tileSize, row * this.tileSize, size, size);
+  }
+
+  getPacman(speed) {
+    for (let row = 0; row < this.gameMap.length; row++) {
+      for (let column = 0; column < this.gameMap[row].length; column++) {
+        let tile = this.gameMap[row][column];
+        if (tile === 4) {
+          // 4 --> pacman
+          this.gameMap[row][column] = 0;
+          return new Pacman(
+            column * this.tileSize,
+            row * this.tileSize,
+            this.tileSize,
+            speed,
+            this
+          );
+        }
+      }
+    }
   }
 }
