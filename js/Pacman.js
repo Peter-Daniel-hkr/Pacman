@@ -23,6 +23,7 @@ export default class Pacman {
     this.powerDotActive = false;
     this.powerDotAboutToExpire = false;
     this.timers = [];
+    this.eatGhostSound = new Audio("sounds/eat_ghost.wav");
 
     this.madeFirstMove = false;
     // keyboard input
@@ -31,11 +32,14 @@ export default class Pacman {
     this.#loadPacmanImages();
   }
 
-  draw(ctx) {
-    this.#move();
-    this.#animate();
+  draw(ctx, pause, ghosts) {
+    if (!pause) {
+      this.#move();
+      this.#animate();
+    }
     this.#eatDot();
     this.#eatPowerDot();
+    this.#eatGhost(ghosts);
     const size = this.tileSize / 2;
 
     ctx.save();
@@ -175,6 +179,18 @@ export default class Pacman {
       }, 1000 * 3);
 
       this.timers.push(powerDotAboutToExpireTimer);
+    }
+  }
+
+  #eatGhost(ghosts) {
+    if (this.powerDotActive) {
+      const collideGhosts = ghosts.filter((ghost) => ghost.collideWith(this));
+      collideGhosts.forEach((ghost) => {
+        ghosts.splice(ghosts.indexOf(ghost), 1);
+        this.score += 50;
+        this.dom_score.innerHTML = `${this.score}`;
+        this.eatGhostSound.play();
+      });
     }
   }
 }
