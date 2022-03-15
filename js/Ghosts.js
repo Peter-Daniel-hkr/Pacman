@@ -1,3 +1,4 @@
+import MovingDirection from "./Input.js";
 export default class Ghost {
   constructor(x, y, tileSize, speed, tileMap) {
     this.x = x;
@@ -7,6 +8,16 @@ export default class Ghost {
     this.tileMap = tileMap;
 
     this.#loadImages();
+
+    this.movingDirection = Math.floor(
+      Math.random() * Object.keys(MovingDirection).length
+    );
+
+    this.directionTimerDefault = this.#random(10, 25);
+    this.directionTimer = this.directionTimerDefault;
+
+    this.scaredAboutToExpireTimerDefault = 10;
+    this.scaredAboutToExpireTimer = this.scaredAboutToExpireTimerDefault;
   }
 
   draw(ctx, pacman) {
@@ -15,6 +26,63 @@ export default class Ghost {
       this.#changeDirection();
     }
     this.#setImage(ctx, pacman);
+  }
+
+  #changeDirection() {
+    this.directionTimer--;
+    let newMoveDirection = null;
+    if (this.directionTimer == 0) {
+      this.directionTimer = this.directionTimerDefault;
+      newMoveDirection = Math.floor(
+        Math.random() * Object.keys(MovingDirection).length
+      );
+    }
+
+    if (newMoveDirection != null && this.movingDirection != newMoveDirection) {
+      if (
+        Number.isInteger(this.x / this.tileSize) &&
+        Number.isInteger(this.y / this.tileSize)
+      ) {
+        if (
+          !this.tileMap.didCollideWithEnvironment(
+            this.x,
+            this.y,
+            newMoveDirection
+          )
+        ) {
+          this.movingDirection = newMoveDirection;
+        }
+      }
+    }
+  }
+
+  #move() {
+    if (
+      !this.tileMap.didCollideWithEnvironment(
+        this.x,
+        this.y,
+        this.movingDirection
+      )
+    ) {
+      switch (this.movingDirection) {
+        case MovingDirection.up:
+          this.y -= this.speed;
+          break;
+        case MovingDirection.down:
+          this.y += this.speed;
+          break;
+        case MovingDirection.left:
+          this.x -= this.speed;
+          break;
+        case MovingDirection.right:
+          this.x += this.speed;
+          break;
+      }
+    }
+  }
+
+  #random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   #loadImages() {
