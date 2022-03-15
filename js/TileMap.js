@@ -1,4 +1,6 @@
 import Pacman from "./Pacman.js";
+import Ghost from "./Ghost.js";
+import MovingDirection from "./Input.js";
 
 export default class TileMap {
   constructor(tileSize) {
@@ -45,7 +47,6 @@ export default class TileMap {
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   ];
 
-  // Legend:>> 0 - dots; 1 - wall; 2 - empty space; 3 - ghost; 4 - pacman; 5 - power pellet
   draw(ctx) {
     for (let row = 0; row < this.gameMap.length; row++) {
       for (let column = 0; column < this.gameMap[row].length; column++) {
@@ -185,13 +186,20 @@ export default class TileMap {
           break;
       }
       const tile = this.gameMap[row][column];
-      // Legend:>> 0 - dots; 1 - wall; 2 - empty space; 3 - ghost; 4 - pacman; 5 - power pellet
-      // if tile === 1, we're colliding with a wall
       if (tile === 1) {
+        // if 1, then we're colliding with a wall
         return true;
       }
     }
     return false;
+  }
+
+  didWin() {
+    return this.#dotsLeft() === 0;
+  }
+
+  #dotsLeft() {
+    return this.gameMap.flat().filter((tile) => tile === 0).length;
   }
 
   eatDot(x, y) {

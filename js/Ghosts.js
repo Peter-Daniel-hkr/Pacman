@@ -1,4 +1,5 @@
 import MovingDirection from "./Input.js";
+
 export default class Ghost {
   constructor(x, y, tileSize, speed, tileMap) {
     this.x = x;
