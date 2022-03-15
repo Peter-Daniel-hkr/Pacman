@@ -23,6 +23,8 @@ export default class Pacman {
     this.powerDotActive = false;
     this.powerDotAboutToExpire = false;
     this.timers = [];
+
+    this.madeFirstMove = false;
     // keyboard input
     document.addEventListener("keydown", this.#keydown);
 

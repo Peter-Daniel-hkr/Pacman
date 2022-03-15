@@ -16,3 +16,7 @@ function gameLoop() {
 
 tileMap.setCanvasSize(canvas);
 setInterval(gameLoop, 1000 / 75);
+
+function pause() {
+  return !pacman.madeFirstMove || gameOver || gameWin;
+}
