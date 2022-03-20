@@ -58,8 +58,10 @@ function pause() {
 function drawGameEnd() {
   if (gameOver || gameWin) {
     showYouWon();
+    drawHighScore();
     if (gameOver) {
       showYouLose();
+      drawHighScore();
     }
   }
 }
@@ -93,4 +95,12 @@ function showYouWon() {
 function showYouLose() {
   GAME_OVER.style.display = "block";
   YOU_LOSE.style.display = "block";
+}
+
+function drawHighScore() {
+  let highScore = JSON.parse(localStorage.getItem("High Score"));
+  ctx.fillStyle = "#000";
+  ctx.textAlign = "center";
+  ctx.font = "bold 30px sans-serif";
+  ctx.fillText("Highest Score: " + highScore, canvas.width / 2, 26);
 }
