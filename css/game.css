@@ -124,8 +124,8 @@ h2 {
 
 h1 {
   position: absolute;
-  top: 32rem;
-  left: 8rem;
+  top: 34rem;
+  left: 6rem;
   text-align: center;
   font-family: PacFont, comic sans MS, sans-serif;
   color: rgb(255, 255, 255);
@@ -134,10 +134,11 @@ h1 {
 
 p {
   position: absolute;
-  top: 36rem;
-  left: 3rem;
+  top: 39rem;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 4rem;
+  padding-right: 4rem;
+  line-height: 4rem;
   font-size: 2rem;
 }
 
@@ -155,8 +156,8 @@ p {
 
 #close-btn {
   position: absolute;
-  top: 58rem;
-  left: 13.5rem;
+  top: 68rem;
+  left: 11rem;
 }
 
 .btn:focus {
@@ -190,4 +191,58 @@ p {
 
 .rules.show {
   transform: translateX(0);
+}
+
+@media (max-width: 76.8rem) {
+  /* h2 {
+    transform: rotate(0deg);
+  }
+  #ui {
+    flex-flow: row wrap;
+    margin-bottom: 2rem;
+  }
+  #score {
+    margin-top: 0;
+    margin-left: 2rem;
+  } */
+
+  .rules {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    width: 100vw;
+  }
+
+  #close-btn {
+    position: absolute;
+    top: 60rem;
+    left: 13.5rem;
+  }
+
+  p {
+    position: absolute;
+    top: 38rem;
+    line-height: 3rem;
+    padding-right: 6rem;
+    font-size: 2rem;
+  }
+
+  .rules-btn {
+    width: 9rem;
+    height: 5rem;
+    border-radius: 30%;
+    position: absolute;
+    top: 57rem;
+    left: 10rem;
+    transform: rotate(0deg);
+  }
+
+  #sound {
+    width: 3rem;
+    height: 2.9rem;
+    cursor: pointer;
+    position: absolute;
+    top: 58rem;
+    left: 25rem;
+  }
 }

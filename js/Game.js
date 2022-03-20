@@ -6,6 +6,7 @@ const canvas = document.getElementById("game-canvas"),
   YOU_WON = document.getElementById("you-won"),
   YOU_LOSE = document.getElementById("you-lose"),
   restart = document.getElementById("restart"),
+  soundElement = document.getElementById("sound"),
   gameOverSound = new Audio("sounds/game_over.wav"),
   gameWinSound = new Audio("sounds/game_win.wav"),
   tileSize = 32,
@@ -65,6 +66,20 @@ function drawGameEnd() {
 
 tileMap.setCanvasSize(canvas);
 setInterval(gameLoop, 1000 / 75);
+
+soundElement.addEventListener("click", audioManager);
+
+function audioManager() {
+  let imgSrc = soundElement.getAttribute("src");
+  let SOUND_IMG =
+    imgSrc === "images/sound_on.jpg"
+      ? "images/sound_off.jpg"
+      : "images/sound_on.jpg";
+
+  soundElement.setAttribute("src", SOUND_IMG);
+  gameWinSound.muted = gameWinSound.muted ? false : true;
+  gameOverSound.muted = gameOverSound.muted ? false : true;
+}
 
 restart.addEventListener("click", function () {
   location.reload();

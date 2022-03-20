@@ -187,7 +187,7 @@ export default class TileMap {
       }
       const tile = this.gameMap[row][column];
       if (tile === 1) {
-        // if 1, then we're colliding with a wall
+        // if 1, we're colliding with a wall
         return true;
       }
     }

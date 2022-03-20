@@ -34,6 +34,7 @@ export default class Pacman {
 
     //  score logic
     this.score = 0;
+    this.highScore = undefined;
     this.dom_score = document.querySelector("#score");
   }
 
@@ -54,7 +55,6 @@ export default class Pacman {
     this.#eatGhost(ghosts);
 
     const size = this.tileSize / 2;
-
     ctx.save();
     ctx.translate(this.x + size, this.y + size);
     ctx.rotate((this.pacmanRotation * 90 * Math.PI) / 180);
@@ -89,29 +89,29 @@ export default class Pacman {
     this.pacmanImageIndex = 0;
   }
 
+  // Legend: Keycode >> 37 = Left arrow; 38 = up arrow; 39 = right arrow; 40 = down arrow;
   #keydown = (event) => {
-    //Arrow left
     if (event.keyCode == 37) {
       if (this.currentMovingDirection == MovingDirection.right)
         this.currentMovingDirection = MovingDirection.left;
       this.requestedMovingDirection = MovingDirection.left;
       this.madeFirstMove = true;
     }
-    //Arrow up
+
     if (event.keyCode == 38) {
       if (this.currentMovingDirection == MovingDirection.down)
         this.currentMovingDirection = MovingDirection.up;
       this.requestedMovingDirection = MovingDirection.up;
       this.madeFirstMove = true;
     }
-    //Arrow right
+
     if (event.keyCode == 39) {
       if (this.currentMovingDirection == MovingDirection.left)
         this.currentMovingDirection = MovingDirection.right;
       this.requestedMovingDirection = MovingDirection.right;
       this.madeFirstMove = true;
     }
-    //Arrow down
+
     if (event.keyCode == 40) {
       if (this.currentMovingDirection == MovingDirection.up)
         this.currentMovingDirection = MovingDirection.down;
@@ -191,6 +191,7 @@ export default class Pacman {
     if (this.tileMap.eatDot(this.x, this.y) && this.madeFirstMove) {
       this.score += 1;
       this.dom_score.innerHTML = `${this.score}`;
+      this.updateHighScore();
       this.eatDotSound.play();
     }
   }
@@ -199,6 +200,7 @@ export default class Pacman {
     if (this.tileMap.eatPowerDot(this.x, this.y)) {
       this.score += 10;
       this.dom_score.innerHTML = `${this.score}`;
+      this.updateHighScore();
       this.powerDotSound.play();
       this.powerDotActive = true;
       this.powerDotAboutToExpire = false;
@@ -227,8 +229,18 @@ export default class Pacman {
         ghosts.splice(ghosts.indexOf(ghost), 1);
         this.score += 50;
         this.dom_score.innerHTML = `${this.score}`;
+        this.updateHighScore();
         this.eatGhostSound.play();
       });
     }
+  }
+
+  updateHighScore() {
+    this.highScore = JSON.parse(localStorage.getItem("High Score"));
+    this.highScore ? null : (this.highScore = this.score);
+    this.highScore > this.score
+      ? (this.highScore = this.highScore)
+      : (this.highScore = this.score);
+    localStorage.setItem("High Score", JSON.stringify(this.highScore));
   }
 }
