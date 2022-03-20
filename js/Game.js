@@ -101,7 +101,7 @@ function showYouLose() {
 
 function drawHighScore() {
   let highScore = JSON.parse(localStorage.getItem("High Score"));
-  ctx.fillStyle = "yellow";
+  ctx.fillStyle = "gold";
   ctx.textAlign = "center";
   ctx.font = "bold 35px 'Fun Games', sans-serif";
   ctx.fillText("HIGHEST SCORE : " + highScore, canvas.width / 2, 26);

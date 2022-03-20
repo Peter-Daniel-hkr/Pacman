@@ -35,7 +35,7 @@ body {
   height: 5rem;
   cursor: pointer;
   position: absolute;
-  top: 38rem;
+  top: 50%;
   left: 35em;
 }
 
@@ -153,9 +153,11 @@ p {
   cursor: pointer;
   border: 0;
   padding: 1rem 2rem;
-  background: rgb(71, 68, 68);
-  color: #fff;
-  font-size: 1.5rem;
+  background-image: linear-gradient(to right, #f7ae15, #ec4620);
+  color: #000;
+  font-family: "Fun Games", sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
   font-weight: bold;
   border-radius: 1rem;
   margin-left: 2rem;
@@ -172,12 +174,12 @@ p {
 }
 
 .btn:hover {
-  background: #222;
+  background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
 }
 
 .rules-btn {
   position: fixed;
-  top: 37rem;
+  top: 50%;
   right: 33rem;
   transform: rotate(90deg);
 }
