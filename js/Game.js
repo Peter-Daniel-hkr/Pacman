@@ -1,4 +1,5 @@
 import TileMap from "./TileMap.js";
+import Sound from "./Sound.js";
 
 const canvas = document.getElementById("game-canvas"),
   ctx = canvas.getContext("2d"),
@@ -7,8 +8,6 @@ const canvas = document.getElementById("game-canvas"),
   YOU_LOSE = document.getElementById("you-lose"),
   restart = document.getElementById("restart"),
   soundElement = document.getElementById("sound"),
-  gameOverSound = new Audio("sounds/game_over.wav"),
-  gameWinSound = new Audio("sounds/game_win.wav"),
   tileSize = 32,
   speed = 2,
   tileMap = new TileMap(tileSize),
@@ -31,7 +30,7 @@ function checkGameWin() {
   if (!gameWin) {
     gameWin = tileMap.didWin();
     if (gameWin) {
-      gameWinSound.play();
+      Sound.gameWinSound.play();
     }
   }
 }
@@ -40,7 +39,7 @@ function checkGameOver() {
   if (!gameOver) {
     gameOver = isGameOver();
     if (gameOver) {
-      gameOverSound.play();
+      Sound.gameOverSound.play();
     }
   }
 }
@@ -71,16 +70,19 @@ setInterval(gameLoop, 1000 / 75);
 
 soundElement.addEventListener("click", audioManager);
 
-function audioManager() {
+export function audioManager() {
   let imgSrc = soundElement.getAttribute("src");
   let SOUND_IMG =
-    imgSrc === "images/sound_on.jpg"
-      ? "images/sound_off.jpg"
-      : "images/sound_on.jpg";
+    imgSrc === "images/volume-on.png"
+      ? "images/volume-mute.png"
+      : "images/volume-on.png";
 
   soundElement.setAttribute("src", SOUND_IMG);
-  gameWinSound.muted = gameWinSound.muted ? false : true;
-  gameOverSound.muted = gameOverSound.muted ? false : true;
+  Sound.gameWinSound.muted = Sound.gameWinSound.muted ? false : true;
+  Sound.gameOverSound.muted = Sound.gameOverSound.muted ? false : true;
+  Sound.eatDotSound.muted = Sound.eatDotSound.muted ? false : true;
+  Sound.powerDotSound.muted = Sound.powerDotSound.muted ? false : true;
+  Sound.eatGhostSound.muted = Sound.eatGhostSound.muted ? false : true;
 }
 
 restart.addEventListener("click", function () {
@@ -99,8 +101,8 @@ function showYouLose() {
 
 function drawHighScore() {
   let highScore = JSON.parse(localStorage.getItem("High Score"));
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = "yellow";
   ctx.textAlign = "center";
-  ctx.font = "bold 30px sans-serif";
-  ctx.fillText("Highest Score: " + highScore, canvas.width / 2, 26);
+  ctx.font = "bold 35px 'Fun Games', sans-serif";
+  ctx.fillText("HIGHEST SCORE : " + highScore, canvas.width / 2, 26);
 }

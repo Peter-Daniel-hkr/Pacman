@@ -3,6 +3,11 @@
   src: url("../font/pac-font.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Fun Games";
+  src: url("../font/Fun\ Games.ttf") format("truetype");
+}
+
 html {
   /* 62.5% of 16px = 10px */
   font-size: 62.5%;
@@ -26,12 +31,12 @@ body {
 }
 
 #sound {
-  width: 3rem;
-  height: 2.9rem;
+  width: 5rem;
+  height: 5rem;
   cursor: pointer;
   position: absolute;
   top: 38rem;
-  left: 39rem;
+  left: 35em;
 }
 
 #game-over {
@@ -81,6 +86,7 @@ body {
   /* flex-flow: column; */
   margin-left: 19rem;
 }
+
 h2 {
   font-weight: 200;
   transform: rotate(0deg);
@@ -91,6 +97,7 @@ h2 {
   margin-right: 1rem;
   /* margin-bottom: 2rem; */
 }
+
 #score {
   font-size: 3.5rem;
   font-weight: 800;
@@ -115,7 +122,7 @@ h2 {
   position: absolute;
   top: 0;
   left: 0;
-  background: transparent;
+  /* background: transparent; */
   width: 36rem;
   height: 31.8rem;
   object-fit: cover;

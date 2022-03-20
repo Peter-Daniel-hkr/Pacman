@@ -1,4 +1,5 @@
 import MovingDirection from "./Input.js";
+import Sound from "./Sound.js";
 
 export default class Pacman {
   constructor(x, y, tileSize, speed, tileMap) {
@@ -15,16 +16,16 @@ export default class Pacman {
     this.pacmanAnimationTimer = null;
 
     this.pacmanRotation = this.Rotation.right;
-    this.eatDotSound = new Audio();
-    this.eatDotSound.src = "sounds/eat_dot.wav";
+    // this.eatDotSound = new Audio();
+    // this.eatDotSound.src = "sounds/eat_dot.wav";
 
-    this.powerDotSound = new Audio();
-    this.powerDotSound.src = "sounds/power_dot.wav";
+    // this.powerDotSound = new Audio();
+    // this.powerDotSound.src = "sounds/power_dot.wav";
     this.powerDotActive = false;
     this.powerDotAboutToExpire = false;
     this.timers = [];
 
-    this.eatGhostSound = new Audio("sounds/eat_ghost.wav");
+    // this.eatGhostSound = new Audio("sounds/eat_ghost.wav");
 
     this.madeFirstMove = false;
 
@@ -192,7 +193,8 @@ export default class Pacman {
       this.score += 1;
       this.dom_score.innerHTML = `${this.score}`;
       this.updateHighScore();
-      this.eatDotSound.play();
+      // this.eatDotSound.play();
+      Sound.eatDotSound.play();
     }
   }
 
@@ -201,7 +203,8 @@ export default class Pacman {
       this.score += 10;
       this.dom_score.innerHTML = `${this.score}`;
       this.updateHighScore();
-      this.powerDotSound.play();
+      // this.powerDotSound.play();
+      Sound.powerDotSound.play();
       this.powerDotActive = true;
       this.powerDotAboutToExpire = false;
       this.timers.forEach((timer) => clearTimeout(timer));
@@ -230,7 +233,8 @@ export default class Pacman {
         this.score += 50;
         this.dom_score.innerHTML = `${this.score}`;
         this.updateHighScore();
-        this.eatGhostSound.play();
+        // this.eatGhostSound.play();
+        Sound.eatGhostSound.play();
       });
     }
   }
