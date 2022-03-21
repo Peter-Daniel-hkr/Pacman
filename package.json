@@ -1,0 +1,24 @@
+{
+  "name": "pacman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Peter-Daniel-hkr/Pacman.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Peter-Daniel-hkr/Pacman/issues"
+  },
+  "homepage": "https://github.com/Peter-Daniel-hkr/Pacman#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.3.1"
+  }
+}
