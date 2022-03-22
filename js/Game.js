@@ -101,7 +101,10 @@ function showYouLose() {
 
 function drawHighScore() {
   let highScore = JSON.parse(localStorage.getItem("High Score"));
-  ctx.fillStyle = "gold";
+  let gradient = ctx.createLinearGradient(0, 0, canvas.width / 2, 26);
+  gradient.addColorStop("0", "yellow");
+  gradient.addColorStop("1", "#f7ae15");
+  ctx.fillStyle = gradient;
   ctx.textAlign = "center";
   ctx.font = "bold 35px 'Fun Games', sans-serif";
   ctx.fillText("HIGHEST SCORE : " + highScore, canvas.width / 2, 26);

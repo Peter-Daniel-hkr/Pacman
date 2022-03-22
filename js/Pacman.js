@@ -16,16 +16,10 @@ export default class Pacman {
     this.pacmanAnimationTimer = null;
 
     this.pacmanRotation = this.Rotation.right;
-    // this.eatDotSound = new Audio();
-    // this.eatDotSound.src = "sounds/eat_dot.wav";
 
-    // this.powerDotSound = new Audio();
-    // this.powerDotSound.src = "sounds/power_dot.wav";
     this.powerDotActive = false;
     this.powerDotAboutToExpire = false;
     this.timers = [];
-
-    // this.eatGhostSound = new Audio("sounds/eat_ghost.wav");
 
     this.madeFirstMove = false;
 
@@ -193,7 +187,6 @@ export default class Pacman {
       this.score += 1;
       this.dom_score.innerHTML = `${this.score}`;
       this.updateHighScore();
-      // this.eatDotSound.play();
       Sound.eatDotSound.play();
     }
   }
@@ -203,7 +196,6 @@ export default class Pacman {
       this.score += 10;
       this.dom_score.innerHTML = `${this.score}`;
       this.updateHighScore();
-      // this.powerDotSound.play();
       Sound.powerDotSound.play();
       this.powerDotActive = true;
       this.powerDotAboutToExpire = false;
@@ -233,7 +225,6 @@ export default class Pacman {
         this.score += 50;
         this.dom_score.innerHTML = `${this.score}`;
         this.updateHighScore();
-        // this.eatGhostSound.play();
         Sound.eatGhostSound.play();
       });
     }

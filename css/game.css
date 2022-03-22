@@ -63,11 +63,12 @@ body {
 #restart {
   position: absolute;
   top: 61vmin;
-  left: 22vmin;
+  left: 15vmin;
   cursor: pointer;
-  font-family: PacFont, comic sans MS, sans-serif;
-  font-size: 4.25rem;
-  color: goldenrod;
+  font-family: "Fun Games", sans-serif;
+  font-size: 9rem;
+  font-weight: 900;
+  color: #ec4620;
 }
 
 @media screen and (max-width: 76.8rem) {
@@ -91,30 +92,29 @@ h2 {
   font-weight: 200;
   transform: rotate(0deg);
   text-align: center;
-  font-family: PacFont, comic sans MS, sans-serif;
-  color: #fff;
-  font-size: 2.5rem;
+  font-family: Fun Games, comic sans MS, sans-serif;
+  color: #ec4620;
+  font-size: 4.5rem;
   margin-right: 1rem;
   /* margin-bottom: 2rem; */
 }
 
 #score {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: 800;
-  color: #ffdf00;
+  color: #f7ae15;
 }
 
 @media (max-width: 76.8rem) {
   h2 {
-    transform: rotate(0deg);
+    color: #000;
   }
   #ui {
     flex-flow: row wrap;
     margin-bottom: 2rem;
   }
   #score {
-    margin-top: 0;
-    margin-left: 2rem;
+    color: #000;
   }
 }
 
@@ -165,7 +165,7 @@ p {
 
 #close-btn {
   position: absolute;
-  top: 68rem;
+  top: 66rem;
   left: 11rem;
 }
 
@@ -203,18 +203,6 @@ p {
 }
 
 @media (max-width: 76.8rem) {
-  /* h2 {
-    transform: rotate(0deg);
-  }
-  #ui {
-    flex-flow: row wrap;
-    margin-bottom: 2rem;
-  }
-  #score {
-    margin-top: 0;
-    margin-left: 2rem;
-  } */
-
   .rules {
     background: #000;
     color: #fff;
