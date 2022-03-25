@@ -73,11 +73,12 @@ soundElement.addEventListener("click", audioManager);
 export function audioManager() {
   let imgSrc = soundElement.getAttribute("src");
   let SOUND_IMG =
-    imgSrc === "images/volume-on.png"
-      ? "images/volume-mute.png"
-      : "images/volume-on.png";
+    imgSrc === "/images/volume-on.png"
+      ? "/images/volume-mute.png"
+      : "/images/volume-on.png";
 
   soundElement.setAttribute("src", SOUND_IMG);
+  console.log(SOUND_IMG);
   Sound.gameWinSound.muted = Sound.gameWinSound.muted ? false : true;
   Sound.gameOverSound.muted = Sound.gameOverSound.muted ? false : true;
   Sound.eatDotSound.muted = Sound.eatDotSound.muted ? false : true;

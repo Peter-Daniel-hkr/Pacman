@@ -60,6 +60,7 @@ body {
   width: 70vmin;
   display: none;
 }
+
 #restart {
   position: absolute;
   top: 61vmin;
@@ -71,21 +72,13 @@ body {
   color: #ec4620;
 }
 
-@media screen and (max-width: 76.8rem) {
-  #game-canvas {
-    box-shadow: 1rem 1rem 2rem #832020;
-    width: 80vmin;
-    height: 80vmin;
-  }
-}
-
 #ui {
   display: flex;
+  justify-content: center;
   align-items: center;
-
+  align-content: center;
   font-size: 1rem;
-  /* flex-flow: column; */
-  margin-left: 19rem;
+  margin-left: calc(width/2);
 }
 
 h2 {
@@ -96,7 +89,6 @@ h2 {
   color: #ec4620;
   font-size: 4.5rem;
   margin-right: 1rem;
-  /* margin-bottom: 2rem; */
 }
 
 #score {
@@ -105,24 +97,10 @@ h2 {
   color: #f7ae15;
 }
 
-@media (max-width: 76.8rem) {
-  h2 {
-    color: #000;
-  }
-  #ui {
-    flex-flow: row wrap;
-    margin-bottom: 2rem;
-  }
-  #score {
-    color: #000;
-  }
-}
-
 .rules-img {
   position: absolute;
   top: 0;
   left: 0;
-  /* background: transparent; */
   width: 36rem;
   height: 31.8rem;
   object-fit: cover;
@@ -173,9 +151,9 @@ p {
   outline: 0;
 }
 
-.btn:hover {
+/* .btn:hover {
   background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
-}
+} */
 
 .rules-btn {
   position: fixed;
@@ -200,46 +178,4 @@ p {
 
 .rules.show {
   transform: translateX(0);
-}
-
-@media (max-width: 76.8rem) {
-  .rules {
-    background: #000;
-    color: #fff;
-    min-height: 100vh;
-    width: 100vw;
-  }
-
-  #close-btn {
-    position: absolute;
-    top: 60rem;
-    left: 13.5rem;
-  }
-
-  p {
-    position: absolute;
-    top: 38rem;
-    line-height: 3rem;
-    padding-right: 6rem;
-    font-size: 2rem;
-  }
-
-  .rules-btn {
-    width: 9rem;
-    height: 5rem;
-    border-radius: 30%;
-    position: absolute;
-    top: 57rem;
-    left: 10rem;
-    transform: rotate(0deg);
-  }
-
-  #sound {
-    width: 3rem;
-    height: 2.9rem;
-    cursor: pointer;
-    position: absolute;
-    top: 58rem;
-    left: 25rem;
-  }
 }

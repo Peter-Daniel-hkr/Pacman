@@ -952,8 +952,9 @@ soundElement.addEventListener("click", audioManager);
 
 function audioManager() {
   var imgSrc = soundElement.getAttribute("src");
-  var SOUND_IMG = imgSrc === "images/volume-on.png" ? "images/volume-mute.png" : "images/volume-on.png";
+  var SOUND_IMG = imgSrc === "/images/volume-on.png" ? "/images/volume-mute.png" : "/images/volume-on.png";
   soundElement.setAttribute("src", SOUND_IMG);
+  console.log(SOUND_IMG);
   _Sound.default.gameWinSound.muted = _Sound.default.gameWinSound.muted ? false : true;
   _Sound.default.gameOverSound.muted = _Sound.default.gameOverSound.muted ? false : true;
   _Sound.default.eatDotSound.muted = _Sound.default.eatDotSound.muted ? false : true;
@@ -1013,7 +1014,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1104" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1658" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

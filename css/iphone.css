@@ -1,0 +1,86 @@
+/* iPhone  */
+@media (max-width: 76.8rem) {
+  body {
+    background-image: linear-gradient(to right, #f7ae15, #ec4620);
+    overflow: hidden;
+  }
+
+  #game-canvas {
+    box-shadow: 0 -15px 15px rgba(0, 0, 0, 0.05),
+      inset 0 -15px 15px rgba(0, 0, 0, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
+      inset 0 15px 15px rgba(0, 0, 0, 0.3);
+    width: 90vmin;
+    height: 90vmin;
+    margin-bottom: 50%;
+    margin-left: 0.5%;
+  }
+
+  .rules {
+    width: 100%;
+    padding-left: 0rem;
+    line-height: 1.5;
+    transform: translateX(-100%);
+    transition: transform 1s ease-in-out;
+  }
+
+  .rules-img {
+    display: none;
+  }
+
+  h1,
+  h2 {
+    color: #ec4620;
+  }
+
+  h1 {
+    position: absolute;
+    top: 23rem;
+    left: 7rem;
+  }
+
+  #score {
+    color: #f7ae15;
+  }
+
+  .rules {
+    background-image: linear-gradient(to right, #f7ae15, #ec4620);
+    color: #ec4620;
+    min-height: 100vh;
+    width: 100vw;
+  }
+
+  p {
+    top: 32rem;
+    line-height: 4rem;
+    padding-right: 6rem;
+    font-size: 1.8rem;
+  }
+
+  #close-btn,
+  .rules-btn {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    font-size: small;
+    top: 58rem;
+    left: 5rem;
+    color: #ec4620;
+  }
+
+  .rules-btn {
+    transform: rotate(0);
+  }
+
+  #sound {
+    width: 7rem;
+    height: 7rem;
+    top: 58rem;
+    left: 25rem;
+  }
+
+  #restart {
+    font-size: 5rem;
+    font-weight: 400;
+    color: #f7ae15;
+  }
+}
