@@ -5,12 +5,12 @@
   "source": "index.html",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Peter-Daniel-hkr/Pacman.git",
-    "deploy": "gh-pages -d dist"
+    "url": "git+https://github.com/Peter-Daniel-hkr/Pacman.git"
   },
   "keywords": [],
   "author": "",
