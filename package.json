@@ -9,7 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Peter-Daniel-hkr/Pacman.git"
+    "url": "git+https://github.com/Peter-Daniel-hkr/Pacman.git",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +18,11 @@
   "bugs": {
     "url": "https://github.com/Peter-Daniel-hkr/Pacman/issues"
   },
-  "homepage": "https://github.com/Peter-Daniel-hkr/Pacman#readme",
+  "homepage": "https://github.com/Peter-Daniel-hkr/Pacman",
   "devDependencies": {
     "parcel-bundler": "^1.3.1"
+  },
+  "dependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
