@@ -78,7 +78,6 @@ body {
   align-items: center;
   align-content: center;
   font-size: 1rem;
-  margin-left: calc(width/2);
 }
 
 h2 {

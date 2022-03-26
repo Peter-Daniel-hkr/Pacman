@@ -42,9 +42,6 @@ h1,
 .content {
   margin: 0 7.5rem;
   padding: 7.5rem;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
 }
 
 .path {
@@ -251,6 +248,7 @@ button {
   border: 3px solid var(--color-border);
   transition: all 0.3s ease;
 }
+
 .animated-button::after {
   position: absolute;
   top: 50%;
@@ -297,18 +295,88 @@ footer {
   align-content: center;
 }
 
-@media screen and (max-device-width: 60rem), screen and (max-width: 48rem) {
+/* iPhone  */
+@media screen and (max-device-width: 600px), screen and (max-width: 480px) {
+  body {
+    background-image: linear-gradient(to right, #f7ae15, #ec4620);
+  }
+
   .content {
-    margin: auto;
-    padding: 0.5rem;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-    width: 90vw;
+    margin-top: 30%;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .path {
+    padding: 2rem 17rem;
+  }
+
+  .ghost {
+    margin-left: 10rem;
   }
 
   h1 {
     font-size: 6rem;
+  }
+
+  .animated-button {
+    color: #f7ae15;
+    height: 80px;
+  }
+
+  footer {
+    font-size: 2rem;
+    font-family: "Fun Games", Geneva, Tahoma, sans-serif;
+    color: #f7ae15;
+  }
+}
+
+/* iPad  */
+@media (min-width: 701px) and (max-width: 1024px) and (orientation: portrait) {
+  body {
+    /* background-image: linear-gradient(to right, #f7ae15, #ec4620); */
+    background-color: #000;
+  }
+
+  .content {
+    margin-top: 30%;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .path {
+    padding: 2rem 38rem;
+    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+      inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+      0 15px 15px rgba(37, 37, 37, 0.3), inset 0 15px 15px rgba(37, 37, 37, 0.3);
+  }
+
+  .ghost {
+    margin-left: 10rem;
+  }
+
+  h1 {
+    font-size: 10rem;
+    color: #f7ae15;
+  }
+
+  .animated-button {
+    color: #f7ae15;
+    border: 3px solid #f7ae15;
+    height: 120px;
+    font-size: 4.5rem;
+    border-radius: 44px;
+    padding: 10px 30px;
+  }
+
+  footer {
+    font-size: 3.5rem;
+    font-family: "Fun Games", Geneva, Tahoma, sans-serif;
+    color: #f7ae15;
   }
 }
 

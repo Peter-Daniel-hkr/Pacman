@@ -1,5 +1,5 @@
 /* iPhone  */
-@media (max-width: 76.8rem) {
+@media screen and (max-device-width: 600px), screen and (max-width: 480px) {
   body {
     background-image: linear-gradient(to right, #f7ae15, #ec4620);
     overflow: hidden;

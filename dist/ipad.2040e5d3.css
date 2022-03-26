@@ -1,7 +1,7 @@
-/* iPhone  */
-@media screen and (max-device-width: 600px), screen and (max-width: 480px) {
+/* iPad  */
+@media (min-width: 701px) and (max-width: 1024px) and (orientation: portrait) {
   body {
-    background-image: linear-gradient(to right, #f7ae15, #ec4620);
+    background-color: #000;
     overflow: hidden;
   }
 
@@ -11,7 +11,7 @@
       inset 0 15px 15px rgba(0, 0, 0, 0.3);
     width: 90vmin;
     height: 90vmin;
-    margin-bottom: 50%;
+    margin-bottom: 30%;
     margin-left: 0.5%;
   }
 
@@ -29,13 +29,15 @@
 
   h1,
   h2 {
-    color: #ec4620;
+    color: #fff;
   }
 
   h1 {
     position: absolute;
     top: 23rem;
-    left: 7rem;
+    left: 16rem;
+    font-size: 40px;
+    color: #f7ae15;
   }
 
   #score {
@@ -43,28 +45,29 @@
   }
 
   .rules {
-    background-image: linear-gradient(to right, #f7ae15, #ec4620);
-    color: #ec4620;
+    background-color: #000;
+    color: #fff;
     min-height: 100vh;
     width: 100vw;
   }
 
   p {
-    top: 32rem;
-    line-height: 4rem;
+    top: 38rem;
+    line-height: 9rem;
     padding-right: 6rem;
-    font-size: 1.8rem;
+    font-size: 36px;
+    margin-left: 20px;
   }
 
   #close-btn,
   .rules-btn {
-    width: 7rem;
+    width: 20rem;
     height: 7rem;
-    border-radius: 50%;
-    font-size: small;
-    top: 58rem;
-    left: 5rem;
-    color: #ec4620;
+    border-radius: 20px;
+    font-size: 26px;
+    top: 95rem;
+    left: 12rem;
+    color: #000;
   }
 
   .rules-btn {
@@ -74,16 +77,17 @@
   #sound {
     width: 7rem;
     height: 7rem;
-    top: 58rem;
-    left: 25rem;
+    top: 95rem;
+    left: calc(100vw * 0.75);
   }
 
   #restart {
-    font-size: 5rem;
+    margin-left: 1rem;
+    font-size: 10rem;
     font-weight: 400;
     color: #f7ae15;
   }
 }
 
 
-/*# sourceMappingURL=/iphone.96d053de.css.map */
+/*# sourceMappingURL=/ipad.2040e5d3.css.map */
