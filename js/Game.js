@@ -72,10 +72,10 @@ soundElement.addEventListener("click", audioManager);
 
 export function audioManager() {
   let imgSrc = soundElement.getAttribute("src");
-  let SOUND_IMG =
-    imgSrc === "/images/volume-on.png"
-      ? "/images/volume-mute.png"
-      : "/images/volume-on.png";
+  console.log(imgSrc);
+  let SOUND_IMG = imgSrc.includes("volume-on")
+    ? "/images/volume-mute.png"
+    : "/images/volume-on.png";
 
   soundElement.setAttribute("src", SOUND_IMG);
   console.log(SOUND_IMG);
