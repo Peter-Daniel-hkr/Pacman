@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "Fun Games";
-  src: url("../font/Fun Games.ttf") format("truetype");
+  src: url("../font/Fun-Games.ttf") format("truetype");
 }
 
 html {
@@ -84,7 +84,7 @@ h2 {
   font-weight: 200;
   transform: rotate(0deg);
   text-align: center;
-  font-family: Fun Games, comic sans MS, sans-serif;
+  font-family: "Fun Games", comic sans MS, sans-serif;
   color: #ec4620;
   font-size: 4.5rem;
   margin-right: 1rem;
